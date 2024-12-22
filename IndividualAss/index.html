@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <header>
+        <h2 class="title">Expense Goal Tracker</h2>
+        <nav class="navigate">
+            <a href="index.html">Goals</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+    </header>
+    <script defer src="javascript.js"></script>
+    
+    <div class="wrapper">
+        <div class="container">
+            <div class="form-box">
+            <h2>Add New Goal</h2>
+            <form id="goalForm" onsubmit="uponSubmit(event);">
+                <div class="input-box">
+                        <ion-icon name="add-circle-outline" class="otherIcon"></ion-icon>
+                        <input type="text" id="goalName" name="goal" placeholder="Eg. Car">
+                        <label for="goalName">Goal Name</label>
+                        <span id="gName_error"></span>  
+                </div>
+                <div class="input-select">
+                    <i class="fa-solid fa-dollar-sign icon"></i>
+                    <select name="currency" id="currency" class="selectCur">
+                        <option value="">Select currency</option>
+                        <option value="RM">RM - MYR</option>
+                        <option value="$">$ - Dollar</option>
+                        <option value="₳">₳ - Austral</option>
+                        <option value="฿">฿ - Baht</option>
+                        <option value="₵">₵ - Cedi</option>
+                        <option value="₫">₫ - Dong</option>
+                        <option value="د.إ">د.إ - Dirham</option>
+                        <option value="₯">₯ - Drachma</option>
+                        <option value="€">€ - Euro</option>
+                        <option value="₣">₣ - Franc</option>
+                        <option value="₲">₲ - Guarani</option>
+                        <option value="₴">₴ - Hryvnia</option>
+                        <option value="₪">₪ - Sheqel</option>
+                        <option value="₽">₽ - Rouble</option>
+                        <option value="₹">₹ - Rupee</option>
+                        <option value="﷼">﷼ - Riyal</option>
+                        <option value="₷">₷ - Spesmilo</option>
+                        <option value="₸">₸ - Tenge</option>
+                        <option value="₮">₮ - Tugrik</option>
+                        <option value="₺">₺ - Lira</option>
+                        <option value="₼">₼ - Manat</option>
+                        <option value="₻">₻ - Mark</option>
+                        <option value="د.ك">د.ك - Dinar</option>
+                        <option value="£">£ - Pound Sterling</option>
+                        <option value="₱">₱ - Peso</option>
+                        <option value="₰">₰ - Penny</option>
+                        <option value="¥">¥ - Yen</option>
+                        <option value="₾">₾ - Lari</option>
+                        <option value="원">원 - Won</option>
+                    </select>
+                    <label for ="Or">Or</label>
+                    <input type="text" id="typeCurrency" name="typeCurrency" placeholder="Type your currency">
+                    <span id="currency_error"></span>
+                </div>
+                
+                <div class="input-box">
+                    
+                    <ion-icon name="cash-outline"class="otherIcon"></ion-icon>
+                    <input type="number" id="target" name="target" step="0.01" min="0" placeholder="Eg. 20000.00">
+                    <label for="target">Target Amount</label>
+                    <span id="target_error"></span>
+                    
+                </div>
+                <div class="input-radio">
+                    <ion-icon name="pricetags-outline" class="otherIcon"></ion-icon>
+                    <p>Category</p>
+                    <span id="category_error"></span>
+                    <input type="radio" name="category" id="entertaintment" value="Entertaintment">
+                    <label for="entertaintment">Entertaintment</label>
+                    <input type="radio" name="category" id="debt" value="Debt">
+                    <label for="debt">Debt</label>
+                    <input type="radio" name="category" id="vacation" value="Vacation">
+                    <label for="vacation">Vacation</label>
+                    <input type="radio" name="category" id="emergency" value="Emergency">
+                    <label for="emergency">Emergency</label>
+                    <input type="radio" name="category" id="other" value="Other">
+                    <label for="other">Other</label>
+                </div>
+                <div class="input-radio">
+                    <i class="fa-solid fa-star icon"></i>
+                    <p>Priority</p>
+                    <span id="priority_error"></span>
+                    <input type="radio" name="priority" id="low" value="Low">
+                    <label for="low">Low</label>
+                    <input type="radio" name="priority" id="medium" value="Medium">
+                    <label for="medium">Medium</label>
+                    <input type="radio" name="priority" id="high" value="High">
+                    <label for="high">High</label>
+                </div>
+                <div class="input-date">
+                    <div class ="start">
+                    <i class="fa-solid fa-calendar icon"></i>
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" name="startDate">
+                    </div>
+                    <div class="end">
+                    <i class="fa-solid fa-calendar icon"></i>
+                    <label for="deadline">Deadline:
+                    <input type="date" id="deadline" name="deadline">
+                    </div>
+                </div>
+                <div class="input-note">
+                    <i class="fa-solid fa-note-sticky icon"></i>                    
+                    <label for="note">Note</label><br>
+                    <textarea id="note" name="note"></textarea>
+                </div>
+                <div class="submitBtn">
+                    <input type="submit" value="Submit">
+                </div>
+                
+            </form>
+            </div>
+            
+        </div>
+
+        <div id="outputSection" class="output"></div>
+    </div>
+    
+    <!--Icons source-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
